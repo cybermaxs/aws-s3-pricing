@@ -1,7 +1,6 @@
 ingest:
-	curl -o data/pricing.json https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/index.json
+	duckdb data/s3pricing.duckdb -c ".read sql/transform.sql"
 
 clean:
-	rm data/*.json
 	rm data/*.duckdb
 
