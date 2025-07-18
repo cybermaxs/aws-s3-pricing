@@ -1,0 +1,5 @@
+# This file was automatically generated
+name: s3pricing
+type: duckdb
+options:
+  filename: s3pricing.duckdb
