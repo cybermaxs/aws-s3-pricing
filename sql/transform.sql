@@ -1,7 +1,7 @@
 CREATE OR REPLACE TABLE offers AS 
 SELECT * FROM read_json_auto('https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/index.json');
 
-CREATE OR REPLACE VIEW products AS
+CREATE OR REPLACE TABLE products AS
 WITH products_map AS (
   SELECT json_extract(offers, '$.products') AS products_json
   FROM offers
@@ -19,7 +19,7 @@ SELECT
 FROM products_map, json_each(products_json);
 
 
-CREATE OR REPLACE VIEW rates AS
+CREATE OR REPLACE TABLE terms AS
 WITH terms_map AS (
   SELECT json_extract(offers, '$.terms.OnDemand') AS terms_json
   FROM offers

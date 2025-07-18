@@ -2,3 +2,5 @@
 data/*.json
 data/*.duckdb
 data/*.wal
+
+.vscode/
